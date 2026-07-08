@@ -1,4 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+@import url('https://fonts.googleapis.com/css?family=Fredoka');
+@import url('https://fonts.googleapis.com/css?family=Silkscreen');
+
 body {
   background: #000000;
   color: #FFFFFF;
+}
+
+body {
+  font-family: 'Fredoka One', sans-serif;
+}
+
+/* Container that hides the overflow text */
+.marquee {
+  overflow: hidden;
+  display: flex;
+  user-select: none;
+  background-color: #111;
+  color: #fff;
+  padding: 15px 0;
+  font-family: Fredoka One;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* The moving tracks */
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100%;
+  gap: 1px;
+  
+  /* Link the animation */
+  animation: scroll-left 8s linear infinite;
+}
+
+/* Pause the animation when the user hovers */
+.marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Individual text items spacing */
+.marquee-content span {
+  padding: 0 1px;
+  white-space: nowrap;
+}
+
+/* Animation definition */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+body {
+  /* Ensure the element occupies space */
+  width: 100%;
+  height: 100vh;
+
+  /* Layer 1 (Top): Transparent-to-colored linear gradient */
+  /* Layer 2 (Bottom): Repeating checkerboard pattern */
+  background-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%),
+    conic-gradient(#00054f 0.25turn, #01053d 0.25turn 0.5turn, #00054f 0.5turn 0.75turn, #01053d 0.75turn);
+
+  /* Set size for the checkerboard tiles */
+  background-size: auto, 50px 50px;
 }
