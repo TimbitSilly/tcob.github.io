@@ -16,7 +16,7 @@ body {
   overflow: hidden;
   display: flex;
   user-select: none;
-  background-color: #111;
+  background-color: #11111180;
   color: #fff;
   padding: 15px 0;
   font-family: Fredoka One;
@@ -34,6 +34,103 @@ body {
   /* Link the animation */
   animation: scroll-left 8s linear infinite;
 }
+
+/* Pause the animation when the user hovers */
+.marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Individual text items spacing */
+.marquee-content span {
+  padding: 0 1px;
+  white-space: nowrap;
+}
+
+/* Animation definition */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+body {
+  /* Ensure the element occupies space */
+  width: 100%;
+  height: 100vh;
+
+  /* Layer 1 (Top): Transparent-to-colored linear gradient */
+  /* Layer 2 (Bottom): Repeating checkerboard pattern */
+  background-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%),
+    conic-gradient(#00054f 0.25turn, #01053d 0.25turn 0.5turn, #00054f 0.5turn 0.75turn, #01053d 0.75turn);
+
+  /* Set size for the checkerboard tiles */
+  background-size: auto, 50px 50px;
+}
+
+.page-box {
+    margin-top: 20px;
+    background: #0FF;
+    padding: 5px;
+    line-height: 3.5px;
+    width: 90%;
+    background-color: #11111190;
+    border-radius: 20px;
+}
+
+/* Reset margins and paddings for a clean slate */
+
+/* Navbar Main Container */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Pushes logo to left, links to right */
+  align-items: center; /* Vertically centers everything */
+  background-color: #333; /* Dark background */
+  padding: 15px 30px; /* Top/Bottom and Left/Right spacing */
+  position: sticky; /* Keeps the navbar at the top when scrolling */
+  top: 0;
+  z-index: 1000; /* Ensures it stays above other content */
+}
+
+/* Logo Styling */
+.nav-logo a {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Navigation Links List */
+.nav-links {
+  display: flex;
+  list-style: none; /* Removes the bullet points */
+}
+
+/* Individual List Items */
+.nav-links li {
+  margin-left: 20px; /* Spaces out the links */
+}
+
+/* Styling the clickable links */
+.nav-links a {
+  color: #fff;
+  text-decoration: none; /* Removes default underline */
+  font-size: 16px;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
+  border-radius: 4px;
+}
+
+/* Hover Effect */
+.nav-links a:hover {
+  background-color: #555; /* Lighter background on hover */
+  color: #00bcd4; /* Accent color on hover */
+}
+
 
 /* Pause the animation when the user hovers */
 .marquee:hover .marquee-content {
