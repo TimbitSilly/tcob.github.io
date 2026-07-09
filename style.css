@@ -82,89 +82,115 @@ body {
     border-radius: 20px;
 }
 
-/* Reset margins and paddings for a clean slate */
-
-/* Navbar Main Container */
+/* 1. Global Reset */
 .navbar {
-  display: flex;
-  justify-content: space-between; /* Pushes logo to left, links to right */
-  align-items: center; /* Vertically centers everything */
-  background-color: #333; /* Dark background */
-  padding: 15px 30px; /* Top/Bottom and Left/Right spacing */
-  position: sticky; /* Keeps the navbar at the top when scrolling */
-  top: 0;
-  z-index: 1000; /* Ensures it stays above other content */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka';
 }
 
-/* Logo Styling */
+/* 2. Navbar Container Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Pushes logo left, links right */
+    align-items: center;            /* Vertically centers items */
+    background-color: #1a1a1a;      /* Dark modern background */
+    padding: 15px 30px;
+    position: fixed;                /* Keeps navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;                  /* Ensures it stays above content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 3. Logo Styling */
 .nav-logo a {
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
-  text-decoration: none;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Fredoka One';
 }
 
-/* Navigation Links List */
+/* 4. Navigation Links Structure */
 .nav-links {
-  display: flex;
-  list-style: none; /* Removes the bullet points */
+    display: flex;
+    list-style: none;               /* Removes bullet points */
+    gap: 20px;                      /* Even spacing between links */
 }
 
-/* Individual List Items */
-.nav-links li {
-  margin-left: 20px; /* Spaces out the links */
-}
-
-/* Styling the clickable links */
+/* 5. Individual Link Styling */
 .nav-links a {
-  color: #fff;
-  text-decoration: none; /* Removes default underline */
+    color: #cccccc;
+    text-decoration: none;          /* Removes underline */
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: all 0.3s ease;     /* Smooth hover transition */
+}
+
+/* 6. Hover & Active Link States */
+.nav-links a:hover, 
+.nav-links a.active {
+    color: #ffffff;
+    background-color: #333333;      /* Subtle background block on hover */
+    border-radius: 4px;
+}
+
+.full-body {
+    margin-top: 100px;
+}
+
+/* Container for the menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style the button */
+.drop-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
   font-size: 16px;
-  padding: 8px 12px;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
+  border: none;
+  cursor: pointer;
   border-radius: 4px;
 }
 
-/* Hover Effect */
-.nav-links a:hover {
-  background-color: #555; /* Lighter background on hover */
-  color: #00bcd4; /* Accent color on hover */
+/* Hide the dropdown menu by default */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
 }
 
-
-/* Pause the animation when the user hovers */
-.marquee:hover .marquee-content {
-  animation-play-state: paused;
+/* Style individual links inside the menu */
+.dropdown-content a {
+  color: #333333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
-/* Individual text items spacing */
-.marquee-content span {
-  padding: 0 1px;
-  white-space: nowrap;
+/* Change link background on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
 }
 
-/* Animation definition */
-@keyframes scroll-left {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+/* CRITICAL: Reveal the menu when hovering over the wrapper */
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-
-body {
-  /* Ensure the element occupies space */
-  width: 100%;
-  height: 100vh;
-
-  /* Layer 1 (Top): Transparent-to-colored linear gradient */
-  /* Layer 2 (Bottom): Repeating checkerboard pattern */
-  background-image: 
-    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%),
-    conic-gradient(#00054f 0.25turn, #01053d 0.25turn 0.5turn, #00054f 0.5turn 0.75turn, #01053d 0.75turn);
-
-  /* Set size for the checkerboard tiles */
-  background-size: auto, 50px 50px;
+/* Subtle button shade change on hover */
+.dropdown:hover .drop-btn {
+  background-color: #2980b9;
 }
+
